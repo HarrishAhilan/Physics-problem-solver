@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Problem Solver</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <!-- KaTeX for LaTeX math rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧪 Physics Problem Solver</h1>
+            <p>Upload a screenshot of a physics problem and get a step-by-step solution</p>
+        </header>
+
+        <main>
+            <!-- Upload Section -->
+            <div class="upload-section">
+                <div class="upload-box" id="uploadBox">
+                    <input 
+                        type="file" 
+                        id="imageInput" 
+                        accept="image/png,image/jpeg,image/jpg,image/gif,image/webp"
+                        style="display: none;"
+                    >
+                    <label for="imageInput" class="upload-label">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <span>Click to upload or drag and drop</span>
+                        <span class="file-types">PNG, JPG, JPEG (Max 10MB)</span>
+                    </label>
+                </div>
+
+                <!-- Image Preview -->
+                <div id="preview" class="preview-section" style="display: none;">
+                    <img id="previewImage" alt="Preview">
+                    <button id="removeImage" class="btn-secondary">Remove Image</button>
+                </div>
+
+                <!-- Submit Button -->
+                <button id="solveButton" class="btn-primary" disabled>
+                    Solve Problem
+                </button>
+            </div>
+
+            <!-- Loading Indicator -->
+            <div id="loadingIndicator" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing problem with AI...</p>
+            </div>
+
+            <!-- Solution Output -->
+            <div id="solutionSection" class="solution-section" style="display: none;">
+                <h2>Solution</h2>
+                <div id="solutionOutput" class="solution-output"></div>
+                <button id="solveAnother" class="btn-secondary">Solve Another Problem</button>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+        </main>
+
+        <footer>
+            <p>Powered by Google Gemini API • Built for educational purposes</p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
